@@ -1,16 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useCallback } from 'react';
 import { Slider } from 'antd';
 import { IRGB } from './../../../types/index';
+import Buttons from './Buttons';
+import { initialColor } from '../../../constans';
 
 type Props = {
-  rgb: IRGB,
-  setRGB: any,
+  setCurrentColor: (rgb: IRGB) => void
 }
 
-const Sliders: React.FC<Props> = ({
-  rgb,
-  setRGB,
-}) => {
+const Sliders: React.FC<Props> = ({ setCurrentColor }) => {
+  const [rgb, setRGB] = useState<IRGB>(initialColor);
 
   const onR = (value: number) => {
     setRGB({ ...rgb, R: value })
@@ -23,6 +22,13 @@ const Sliders: React.FC<Props> = ({
   const onB = (value: number) => {
     setRGB({ ...rgb, B: value });
   };
+
+  const onSubmit = useCallback(() => { setCurrentColor(rgb) }, [setCurrentColor, rgb]);
+
+  const onCancel = useCallback(() => {
+    setCurrentColor(initialColor);
+    setRGB(initialColor);
+  }, [setCurrentColor]);
 
   return (
     <div>
@@ -44,6 +50,9 @@ const Sliders: React.FC<Props> = ({
         value={typeof rgb.B === 'number' ? rgb.B : 0}
         onChange={onB} />
       <p>{rgb.B}</p>
+      <Buttons
+        onSubmit={onSubmit}
+        onCancel={onCancel} />
     </div>
   )
 }

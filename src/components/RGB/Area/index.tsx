@@ -2,10 +2,10 @@ import React from 'react';
 import { IRGB } from './../../../types/';
 
 type Props = {
-  mSetCurrentColor: IRGB
+  currentColor: IRGB
 }
 
-const Area: React.FC<Props> = ({ mSetCurrentColor: { R, G, B } }) => {
+const Area: React.FC<Props> = ({ currentColor: { R, G, B } }) => {
 
   const styles: React.CSSProperties = {
     backgroundColor: `rgb(${R}, ${G}, ${B})`
