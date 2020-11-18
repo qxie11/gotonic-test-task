@@ -5,7 +5,6 @@ import { IRGB } from './../../types/index';
 import { initialColor } from '../../constans';
 
 const RGB: React.FC = () => {
-
   const [currentColor, setCurrentColor] = useState<IRGB>(initialColor);
 
   return (

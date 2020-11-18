@@ -12,11 +12,11 @@ const Buttons: React.FC<Props> = ({
 }) => {
 
     return (
-        <div>
+        <div className="sliders__buttons">
             <Button type="primary" onClick={onCancel}>Cancel</Button>
             <Button type="primary" onClick={onSubmit}>Submit</Button>
         </div>
     );
 }
-  
+
 export default React.memo(Buttons);
