@@ -4,7 +4,7 @@ import Sliders from './Sliders/index';
 import { IRGB } from './../../types/index';
 import { initialColor } from '../../constans';
 
-const RGB: React.FC = () => {
+const ColorPicker: React.FC = () => {
   const [currentColor, setCurrentColor] = useState<IRGB>(initialColor);
 
   return (
@@ -15,4 +15,4 @@ const RGB: React.FC = () => {
   );
 }
 
-export default RGB;
+export default ColorPicker;
